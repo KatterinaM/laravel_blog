@@ -14,18 +14,24 @@
     Route::get('/', 'MainController@index')
         ->name('mainPage');
 
+    Route::get('/about', 'MainController@about')
+        ->name('aboutPage');
+
+    Route::get('/new', 'MainController@newArticles')
+        ->name('newArticlesPage');
+
     Route::get('/article/{id}', 'MainController@oneArticle')
         ->where ('id', '[0-9]+')
         ->name('oneArticle');
 
-    Route::get('/login', 'LoginController@loginClient')
-        ->name('loginClientPage');
+    Route::get('/login', 'LoginController@login')
+        ->name('loginPage');
 
-    Route::post('/login', 'LoginController@loginClientPost')
-        ->name('loginClientPost');
+    Route::post('/login', 'LoginController@loginPost')
+        ->name('loginPost');
 
-    Route::get('/check', 'LoginController@userCheckIn')
-        ->name('checkInUser');
+    Route::get('/check', 'LoginController@checkIn')
+        ->name('checkIn');
 
-    Route::post('/check', 'LoginController@userCheckInPost')
+    Route::post('/check', 'LoginController@\checkInPost')
         ->name('checkInUserPost');
